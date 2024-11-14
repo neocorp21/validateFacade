@@ -48,6 +48,7 @@
 			<url>https://maven.pkg.github.com/neocorp21/validateFacade</url>
 		</repository>
 	</distributionManagement>
+
 	<build>
 		<plugins>
 			<plugin>
