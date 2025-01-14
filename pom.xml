@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent Spring Boot Configuration -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
+	<!-- Information about the Project -->
 	<groupId>com.validate</groupId>
 	<artifactId>validatefacade</artifactId>
 	<version>0.1.4</version>
-	<name>validatefacade</name> <!-- debe estar en minuscula -->
-	<description>validatefacade</description>
-	<url/>
+	<name>validatefacade</name> <!-- Project Name (should be lowercase) -->
+	<description>ValidateFacade for project validation logic</description>
+	<url>https://github.com/neocorp21/validateFacade</url>
+
+	<!-- License Information -->
 	<licenses>
-		<license/>
+		<license>
+			<name>MIT License</name>
+			<url>https://opensource.org/licenses/MIT</url>
+		</license>
 	</licenses>
-	<developers>
-		<developer/>
-	</developers>
+
+	<!-- SCM (Source Code Management) Configuration -->
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection>scm:git:git://github.com/neocorp21/validateFacade.git</connection>
+		<developerConnection>scm:git:ssh://github.com/neocorp21/validateFacade.git</developerConnection>
+		<url>https://github.com/neocorp21/validateFacade</url>
 	</scm>
+
+	<!-- Properties (Java Version) -->
 	<properties>
 		<java.version>11</java.version>
 	</properties>
+
+	<!-- Dependencies -->
 	<dependencies>
+		<!-- Spring Boot Web Starter (Optional) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Spring Boot Test Starter -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -42,22 +56,39 @@
 		</dependency>
 	</dependencies>
 
+	<!-- Distribution Management (GitHub Packages) -->
 	<distributionManagement>
 		<repository>
 			<id>neocorp21</id>
-			<name>GitHub Packages</name>
 			<url>https://maven.pkg.github.com/neocorp21/validateFacade</url>
 		</repository>
 	</distributionManagement>
 
 
+	<!-- Build Plugins -->
 	<build>
 		<plugins>
+			<!-- Spring Boot Maven Plugin -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>org.graalvm.buildtools</groupId>
+				<artifactId>native-maven-plugin</artifactId>
+				<version>0.10.3</version>
+				<executions>
+					<!-- Puedes comentar o eliminar esta sección -->
+					<execution>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
+
 	</build>
 
 </project>
